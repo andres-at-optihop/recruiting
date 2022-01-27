@@ -25,6 +25,7 @@ Restricciones:
 export default class Solution {
   getSubSets(nums: number[]): number[][] {
     var result: number[][] = [];
+    // Escriba su solución acá:
 
     return result;
   }
