@@ -35,6 +35,24 @@ const TestCases: TestCase[] = [
       [],
     ],
   },
+  {
+    name: '1,2,2,3 unsorted',
+    input: [1, 3, 2, 2],
+    expectedOutput: [
+      [1, 2, 2, 3],
+      [1, 2, 2],
+      [1, 2, 3],
+      [1, 2],
+      [1, 3],
+      [1],
+      [2, 2, 3],
+      [2, 2],
+      [2, 3],
+      [2],
+      [3],
+      [],
+    ],
+  },
 ];
 
 describe('Solution Results', () => {
