@@ -7,12 +7,12 @@ Devuelva la solución en cualquier orden.
 
 Ejemplo 1:
 
-Entrada: números = [1,2,2]
+Entrada: nums = [1,2,2]
 Salida: [[],[1],[1,2],[1,2,2],[2],[2,2]]
 
 Ejemplo 2:
 
-Entrada: números = [0]
+Entrada: nums = [0]
 Salida: [[],[0]]
  
 
