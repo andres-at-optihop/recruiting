@@ -64,16 +64,19 @@ describe('Solution Results', () => {
     return hash;
   };
 
+  const validateTestCase = (testCase: TestCase) => {
+    const result = solution.getSubSets(testCase.input);
+    expect(helperHash(result)).toStrictEqual(
+      helperHash(testCase.expectedOutput),
+    );
+  };
+
   let solution: Solution;
   beforeEach(() => {
     solution = new Solution();
   });
+
   for (const testCase of TestCases) {
-    it(testCase.name, () => {
-      const result = solution.getSubSets(testCase.input);
-      expect(helperHash(result)).toStrictEqual(
-        helperHash(testCase.expectedOutput),
-      );
-    });
+    it(testCase.name, () => validateTestCase(testCase));
   }
 });
