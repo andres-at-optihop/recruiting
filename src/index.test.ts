@@ -55,28 +55,26 @@ const TestCases: TestCase[] = [
   },
 ];
 
+const helperHash = (arr: number[][]): { [key: string]: boolean } => {
+  const hash: { [key: string]: boolean } = {};
+  for (const subArray of arr) {
+    hash[subArray.join(',')] = true;
+  }
+  return hash;
+};
+
+const validateTestCase = (solution: Solution, testCase: TestCase) => {
+  const result = solution.getSubSets(testCase.input);
+  expect(helperHash(result)).toStrictEqual(helperHash(testCase.expectedOutput));
+};
+
 describe('Solution Results', () => {
-  const helperHash = (arr: number[][]): { [key: string]: boolean } => {
-    const hash: { [key: string]: boolean } = {};
-    for (const subArray of arr) {
-      hash[subArray.join(',')] = true;
-    }
-    return hash;
-  };
-
-  const validateTestCase = (testCase: TestCase) => {
-    const result = solution.getSubSets(testCase.input);
-    expect(helperHash(result)).toStrictEqual(
-      helperHash(testCase.expectedOutput),
-    );
-  };
-
   let solution: Solution;
   beforeEach(() => {
     solution = new Solution();
   });
 
   for (const testCase of TestCases) {
-    it(testCase.name, () => validateTestCase(testCase));
+    it(testCase.name, () => validateTestCase(solution, testCase));
   }
 });
